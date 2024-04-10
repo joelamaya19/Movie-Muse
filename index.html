@@ -16,9 +16,10 @@
     <main>
         <div>
             <h2 class="title is-2 block has-text-centered">Type in the name of a movie you like below</h2>
-            <div class = "is-flex container is-4 is-centered">
-                <input class="input is-info is-rounded block has-text-centered" type="text" placeholder="Enter your movie here"/>
-            </div>
+            <form class = "searchForm is-flex container is-4 is-centered">
+                <input id="userInput" class="input is-info is-rounded block has-text-centered" type="text" placeholder="Enter your movie here"/>
+                <button type = "submit">button</button>
+            </form>
             <p>This is the main content of my web page.</p>
             <!-- You can add more paragraphs, images, or other elements here -->
             <div class="results block"></div>
@@ -31,6 +32,6 @@
     </footer>
 
     <!-- You can include scripts at the end of the body tag to improve page loading performance -->
-    <script src="/assets/js/scripts.js"></script>
+    <script src="./assets/js/scripts.js"></script>
 </body>
 </html>
