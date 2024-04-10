@@ -58,7 +58,7 @@ function searchMovie(movie) {
         release.textContent = "Release: " + info.release_date;
         release.classList.add('release');
 
-        // created an img element to hold movie images
+        // created an img element w/ src attribute to hold and display movie images and base URL
         const poster = document.createElement('img')
         poster.src = "https://image.tmdb.org/t/p/w185" + info.poster_path;
         

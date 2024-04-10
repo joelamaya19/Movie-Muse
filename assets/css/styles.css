@@ -1,4 +1,4 @@
-/* creates a border around each result array obj */
+/* creates a border around each result obj */
 .contain {
     border: 2px solid grey;
     margin: 15px;
