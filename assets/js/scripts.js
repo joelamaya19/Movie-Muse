@@ -58,8 +58,9 @@ function searchMovie(movie) {
         release.textContent = "Release: " + info.release_date;
         release.classList.add('release');
 
+        // created an img element to hold movie images
         const poster = document.createElement('img')
-        poster.src = info.poster_path
+        poster.src = "https://image.tmdb.org/t/p/w185" + info.poster_path;
         
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
