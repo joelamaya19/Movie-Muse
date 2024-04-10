@@ -2,7 +2,7 @@
 const movieNameInput = document.querySelector('#userInput');
 const formSubmit = document.querySelector('.searchForm');
 // p element to hold results data
-const container = document.querySelector('p')
+const pEl = document.querySelector('p')
 
 console.log(formSubmit);
 const optionsTMBD = {
@@ -28,6 +28,9 @@ function searchMovie(movie) {
       console.log(data.results);
       // loops through all of the data results and creates elements for each of the requested info values
       data.results.forEach(info => {
+        const container = document.createElement('div');
+        container.classList.add('contain');
+
         const titleEl = document.createElement('h3');
         titleEl.textContent = info.title;
 
@@ -43,16 +46,16 @@ function searchMovie(movie) {
         const release = document.createElement('p');
         release.textContent = info.release_date;
 
-        // append each element to the container separately rather than all together for visibility
+        // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
         container.appendChild(languageEl);
         container.appendChild(overview);
         container.appendChild(popularity);
         container.appendChild(release);
-        
-        // // container.appendChild(titleEl, overview, release, popularity, languageEl);
-        // appending all created elements to the body of the html
-        document.body.append(container);
+
+        // // pEl.appendChild(titleEl, overview, release, popularity, languageEl);
+        // appending all created elements to the main p element of the html
+        pEl.append(container);
       })
     })
 
