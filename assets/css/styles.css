@@ -1,3 +1,50 @@
 .contain {
-    border: 2px solid greenyellow;
+    border: 2px solid grey;
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+    background-color: rgba(0, 0, 255, 0.228);
+}
+
+.titleEl {
+    font-weight: 700;
+    font-size: 25px;
+    text-decoration: underline;
+    font-family:cursive;
+}
+
+.langEl {
+color: red;
+/* background-color: black; */
+opacity: 50%;
+/* width: fit-content; */
+margin: auto;
+}
+
+.infoEl {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.desc {
+}
+
+.pop {
+margin-top: 15px;
+
+
+}
+
+.release {
+margin-bottom: 10px;
+}
+
+.pop, .release{
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    background-color: rgba(0, 0, 255, 0.228);
+    opacity: 80%;
+    border-radius: 3px;
+padding: 0 4px;
 }

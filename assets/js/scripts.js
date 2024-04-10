@@ -31,24 +31,34 @@ function searchMovie(movie) {
         const container = document.createElement('div');
         container.classList.add('contain');
 
-        const titleEl = document.createElement('h3');
+        const titleEl = document.createElement('h2');
         titleEl.textContent = info.title;
+        titleEl.classList.add('titleEl')
 
         const languageEl = document.createElement('p');
         languageEl.textContent = info.original_language;
+        languageEl.classList.add('langEl');
+
+        const infoEl = document.createElement('p');
+        infoEl.textContent = "Info: "
+infoEl.classList.add('infoEl');
 
         const overview = document.createElement('p');
         overview.textContent = info.overview;
+        overview.classList.add('desc');
 
         const popularity = document.createElement('p');
-        popularity.textContent = info.popularity;
+        popularity.textContent = "Rating: " + info.popularity;
+        popularity.classList.add('pop');
 
         const release = document.createElement('p');
-        release.textContent = info.release_date;
+        release.textContent = "Release: " + info.release_date;
+        release.classList.add('release');
 
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
         container.appendChild(languageEl);
+        container.appendChild(infoEl);
         container.appendChild(overview);
         container.appendChild(popularity);
         container.appendChild(release);
