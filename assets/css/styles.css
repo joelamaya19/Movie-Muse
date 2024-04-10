@@ -1,3 +1,4 @@
+/* creates a border around each result array obj */
 .contain {
     border: 2px solid grey;
     margin: 15px;
@@ -16,8 +17,8 @@
 .langEl {
 color: red;
 /* background-color: black; */
-opacity: 50%;
 /* width: fit-content; */
+opacity: 50%;
 margin: auto;
 }
 

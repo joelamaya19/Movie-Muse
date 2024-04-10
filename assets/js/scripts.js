@@ -15,6 +15,8 @@ const optionsTMBD = {
 
 
 function searchMovie(movie) {
+  // added a line to clear results upon search
+  pEl.textContent= "";
   fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`, optionsTMBD)
     .then(response => {
       return response.json();
@@ -39,9 +41,10 @@ function searchMovie(movie) {
         languageEl.textContent = info.original_language;
         languageEl.classList.add('langEl');
 
+        // "Info: " displays above info.overview text
         const infoEl = document.createElement('p');
         infoEl.textContent = "Info: "
-infoEl.classList.add('infoEl');
+        infoEl.classList.add('infoEl');
 
         const overview = document.createElement('p');
         overview.textContent = info.overview;
@@ -55,6 +58,9 @@ infoEl.classList.add('infoEl');
         release.textContent = "Release: " + info.release_date;
         release.classList.add('release');
 
+        const poster = document.createElement('img')
+        poster.src = info.poster_path
+        
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
         container.appendChild(languageEl);
@@ -62,6 +68,7 @@ infoEl.classList.add('infoEl');
         container.appendChild(overview);
         container.appendChild(popularity);
         container.appendChild(release);
+        container.appendChild(poster);
 
         // // pEl.appendChild(titleEl, overview, release, popularity, languageEl);
         // appending all created elements to the main p element of the html
