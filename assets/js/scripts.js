@@ -25,6 +25,7 @@ function searchMovie(movie) {
     });
 
   }
+  
 function formHandler(event) {
   event.preventDefault();
   console.log('Submitted the form')
