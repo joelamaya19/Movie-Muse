@@ -168,7 +168,6 @@ function streamingAvailabilityInfo(id) {
             const streamingInfo = response.result.streamingInfo.us;
 
             streamingInfo.forEach(info => {
-                const streamService = document.createElement('p');
                 // clickable links to streaming services
                 const streamLink = document.createElement('a');
                 streamLink.href = info.link;
