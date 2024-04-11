@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <title>Movie Muse</title>
     <!-- You can link CSS files or include other meta tags or scripts here -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css"/>
@@ -15,23 +15,16 @@
     </header>
 
     <main>
-        <div>
-            <h2 class="title is-2 block has-text-centered">Type in the name of a movie you like below</h2>
+        <div class = "container has-text-centered">
+            <h3 class="title is-2 block has-text-centered">Type in the name of a movie you like below</h3>
             <form class = "searchForm is-flex container is-4 is-centered">
                 <input id="userInput" class="input is-info is-rounded block has-text-centered" type="text" placeholder="Enter your movie here"/>
-                <button type = "submit">button</button>
             </form>
-            <!-- You can add more paragraphs, images, or other elements here -->
+            <button class = "button is-link">Not sure? Click me!</button>
             <div class="results-block"></div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 My Web Page. All rights reserved.</p>
-        <!-- You can add footer content or navigation links here -->
-    </footer>
-
-    <!-- You can include scripts at the end of the body tag to improve page loading performance -->
     <script src="./assets/js/scripts.js"></script>
 </body>
 </html>
