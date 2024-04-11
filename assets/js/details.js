@@ -1,4 +1,6 @@
 // This javascript file to give out the movie details & streaming availability.
+const movieId = localStorage.getItem('movie-id');
+
 
 const optionsTMBD = {
     method: 'GET',
@@ -7,10 +9,9 @@ const optionsTMBD = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGFiNmM3NzE0MDZiMDYwNGJhMTViZWNkOTRiMDAwNiIsInN1YiI6IjY2MTU2NzUxOGVlMGE5MDE2NWE0ODFjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iXAYBrRmgumRMOZbdk7mb79G7Wi5iKgl8Xeuj1b343U'
     }
   };
-  
-const movieId = '27205';
 
 function movieDetails(movie) {
+    console.log(movie);
     fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US`, optionsTMBD)
     .then(response => {
         return response.json();
