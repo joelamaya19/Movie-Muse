@@ -59,9 +59,7 @@ function searchMovie(movie) {
         release.classList.add('release');
 
         // created an img element w/ src attribute to hold and display movie images and base URL
-        const poster = document.createElement('img')
-
-
+        const poster = document.createElement('img');
 
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
@@ -76,6 +74,8 @@ function searchMovie(movie) {
         // removes thumbnails so no thumbnail is leftover if there is no image available
         if (info.poster_path) {
           poster.src = "https://image.tmdb.org/t/p/w185" + info.poster_path;
+          // poster.style.border = '2px solid black';
+          poster.style.boxShadow = '0px 0px 4px 0 black';
 
         } else {
           // poster.src = ""; //nothing is displayed if no img avail
