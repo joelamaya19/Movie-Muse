@@ -1,5 +1,6 @@
 // This javascript file to give out the movie details & streaming availability.
 const movieId = localStorage.getItem('movie-id');
+const results = document.querySelector('.results-block');
 
 
 const optionsTMBD = {
@@ -18,7 +19,63 @@ function movieDetails(movie) {
     })
     .then(response => {
         console.log(response)
+        const container = document.createElement('div');
+
+        const titleEl = document.createElement('p');
+        titleEl.textContent = response.title;
+
+        const infoEl = document.createElement('p');
+        infoEl.textContent = "Info: ";
+
+        const overview = document.createElement('p');
+        overview.textContent = response.overview;
+
+        const runtime = document.createElement('p');
+        runtime.textContent = "Runtime: " + response.runtime;
+
+        const releaseDate = document.createElement('p');
+        releaseDate.textContent = "Release: " + response.release_date;
+
+        const popularity = document.createElement('p');
+        popularity.textContent = "Rating: " + response.popularity;
+
+        const language = document.createElement('p');
+        language.textContent = releaseDate.original_language;
+
+        const poster = document.createElement('img');
+        poster.src = "https://image.tmdb.org/t/p/w185" + response.poster_path;
+
+        if (!poster) {
+            let msg = document.createElement('p');
+          msg.textContent = '"Sorry, there\'\s no image available... :("';
+          container.appendChild(msg);
+          results.append(container);
+        }
+
+        container.appendChild(titleEl);
+        container.appendChild(infoEl);
+        container.appendChild(overview);
+        container.appendChild(runtime);
+        container.appendChild(releaseDate);
+        container.appendChild(popularity);
+        container.appendChild(language);
+        container.appendChild(poster);
+
+        results.append(container);
+
+
+        response.genres.forEach(data => {
+            const container2 = document.createElement('div');
+
+            const genreEl = document.createElement('p');
+            genreEl.textContent = data.name;
+
+            container2.appendChild(genreEl);
+            results.append(container2);
+        });
+       
     })
+    
     .catch(err => {
         console.error(err)
     });
