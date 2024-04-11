@@ -16,7 +16,7 @@ const optionsTMBD = {
 
 function searchMovie(movie) {
   // added a line to clear results upon search
-  pEl.textContent= "";
+  pEl.textContent = "";
   fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`, optionsTMBD)
     .then(response => {
       return response.json();
@@ -60,8 +60,8 @@ function searchMovie(movie) {
 
         // created an img element w/ src attribute to hold and display movie images and base URL
         const poster = document.createElement('img')
-        poster.src = "https://image.tmdb.org/t/p/w185" + info.poster_path;
-        
+
+
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
         container.appendChild(languageEl);
@@ -71,6 +71,17 @@ function searchMovie(movie) {
         container.appendChild(release);
         container.appendChild(poster);
 
+        // removes thumbnails so no thumbnail is leftover if there is no image available
+        if (info.poster_path) {
+          poster.src = "https://image.tmdb.org/t/p/w185" + info.poster_path;
+
+        } else {
+          // poster.src = ""; //nothing is displayed if no img avail
+          let sorry = document.createElement('p');
+          sorry.textContent = "Sorry, there's no image available... :(";
+          container.appendChild(sorry);
+          pEl.append(container);
+        }
         // // pEl.appendChild(titleEl, overview, release, popularity, languageEl);
         // appending all created elements to the main p element of the html
         pEl.append(container);
