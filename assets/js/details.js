@@ -44,7 +44,7 @@ function movieDetails(movie) {
             popularity.classList.add('pop');
 
             const language = document.createElement('p');
-            language.textContent = response.original_language;
+            language.textContent = "Language: " + response.original_language;
             language.classList.add('lang');
 
             const poster = document.createElement('img');
@@ -56,37 +56,41 @@ function movieDetails(movie) {
             // if no image available, display apology message
             if (response.poster_path) {
                 poster.src = "https://image.tmdb.org/t/p/w342" + response.poster_path;
-                poster.style.boxShadow = '0px 0px 4px 0 black';
 
             }
             else {
                 let msg = document.createElement('p');
                 msg.textContent = '"Sorry, there\'\s no image available... :("';
-                msg.classList.add('msg');
+                msg.classList.add('sorryMsg');
 
                 container.appendChild(msg);
                 results.append(container);
             }
-
-            container.appendChild(infoEl);
-            container.appendChild(overview);
+            
             container.appendChild(runtime);
             container.appendChild(popularity);
             container.appendChild(language);
+            container.appendChild(infoEl);
+            container.appendChild(overview);
+            
 
             results.append(container);
 
             // display genre info
+            const genreName = document.createElement('p');
+            genreName.textContent = 'Genre: ';
+            genreName.classList.add('genreName');
+            container.appendChild(genreName);
+
             response.genres.forEach(data => {
-            const container2 = document.createElement('div');
-            container2.classList.add('container');
 
                 const genreEl = document.createElement('p');
-                genreEl.textContent = data.name;
+               
+                genreEl.textContent = data.name + ", ";
                 genreEl.classList.add('genres');
 
-                container2.appendChild(genreEl);
-                results.append(container2);
+                container.appendChild(genreEl);
+                results.append(container);
             });
 
         })
@@ -99,8 +103,8 @@ function movieDetails(movie) {
 const optionsStreams = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '91ecad8d66mshe205e1fb171385ap1f4dc8jsnbf233fe15206',
-
+        
+        // 'X-RapidAPI-Key': '91ecad8d66mshe205e1fb171385ap1f4dc8jsnbf233fe15206',
         // 'X-RapidAPI-Key': '7164f4d749mshdb906e6d2ce7e25p194df8jsnd49f9a0ea076',
         // 'X-RapidAPI-Key': 'be3659d7femsh065826255911efdp1e7449jsn2f084c997423',
         'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
@@ -114,8 +118,8 @@ function streamingAvailabilityInfo(id) {
         })
         .then(response => {
             console.log(response);
-            const container3 = document.createElement('div');
-            container3.classList.add('container');
+            const container = document.createElement('div');
+            container.classList.add('container');
             // display cast info
             const castData = response.result.cast;
             castData.forEach(actor => {
@@ -123,9 +127,9 @@ function streamingAvailabilityInfo(id) {
                 const cast = document.createElement('p');
                 cast.textContent = actor;
 
-                container3.appendChild(cast);
+                container.appendChild(cast);
 
-                results.append(container3);
+                results.append(container);
             });
 
             // display directors 
@@ -134,9 +138,9 @@ function streamingAvailabilityInfo(id) {
                 const directors = document.createElement('p');
                 directors.textContent = member;
 
-                container3.appendChild(directors);
+                container.appendChild(directors);
 
-                results.append(container3);
+                results.append(container);
             });
 
             // display streaming services and links
@@ -151,19 +155,19 @@ function streamingAvailabilityInfo(id) {
                 streamLink.href = info.link;
                 streamLink.textContent = "Watch here";
 
-                container3.appendChild(streamService);
-                container3.appendChild(streamLink);
+                container.appendChild(streamService);
+                container.appendChild(streamLink);
 
-                results.append(container3);
+                results.append(container);
             });
 
             const year = document.createElement('p');
             year.textContent = response.result.year;
            
-            container3.appendChild(year);
+            container.appendChild(year);
 
 
-            results.append(container3);
+            results.append(container);
         })
         .catch(err => {
             console.log(err)
