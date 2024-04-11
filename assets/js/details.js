@@ -21,38 +21,49 @@ function movieDetails(movie) {
             console.log(response)
             // display move info
             const container = document.createElement('div');
+            container.classList.add('container');
 
             const titleEl = document.createElement('p');
             titleEl.textContent = response.title;
+            titleEl.classList.add('titleEl');
 
             const infoEl = document.createElement('p');
             infoEl.textContent = "Info: ";
+            infoEl.classList.add('info');
 
             const overview = document.createElement('p');
             overview.textContent = response.overview;
+            overview.classList.add('overview');
 
             const runtime = document.createElement('p');
             runtime.textContent = "Runtime: " + response.runtime;
+            runtime.classList.add('runtime');
 
             const popularity = document.createElement('p');
             popularity.textContent = "Rating: " + response.popularity;
+            popularity.classList.add('pop');
 
             const language = document.createElement('p');
             language.textContent = response.original_language;
+            language.classList.add('lang');
 
             const poster = document.createElement('img');
+            poster.classList.add('poster');
 
 
             container.appendChild(titleEl);
             container.appendChild(poster);
             // if no image available, display apology message
             if (response.poster_path) {
-                poster.src = "https://image.tmdb.org/t/p/w185" + response.poster_path;
+                poster.src = "https://image.tmdb.org/t/p/w342" + response.poster_path;
+                poster.style.boxShadow = '0px 0px 4px 0 black';
 
             }
             else {
                 let msg = document.createElement('p');
                 msg.textContent = '"Sorry, there\'\s no image available... :("';
+                msg.classList.add('msg');
+
                 container.appendChild(msg);
                 results.append(container);
             }
@@ -67,10 +78,12 @@ function movieDetails(movie) {
 
             // display genre info
             response.genres.forEach(data => {
-                const container2 = document.createElement('div');
+            const container2 = document.createElement('div');
+            container2.classList.add('container');
 
                 const genreEl = document.createElement('p');
                 genreEl.textContent = data.name;
+                genreEl.classList.add('genres');
 
                 container2.appendChild(genreEl);
                 results.append(container2);
@@ -102,6 +115,7 @@ function streamingAvailabilityInfo(id) {
         .then(response => {
             console.log(response);
             const container3 = document.createElement('div');
+            container3.classList.add('container');
             // display cast info
             const castData = response.result.cast;
             castData.forEach(actor => {
@@ -125,9 +139,6 @@ function streamingAvailabilityInfo(id) {
                 results.append(container3);
             });
 
-
-            const year = document.createElement('p');
-            year.textContent = response.result.year;
             // display streaming services and links
             console.log(response.result.streamingInfo.us);
             const streamingInfo = response.result.streamingInfo.us;
@@ -146,6 +157,8 @@ function streamingAvailabilityInfo(id) {
                 results.append(container3);
             });
 
+            const year = document.createElement('p');
+            year.textContent = response.result.year;
            
             container3.appendChild(year);
 

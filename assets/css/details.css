@@ -1,0 +1,47 @@
+body {
+text-align: center;
+background-color: lavender;
+width: 80%;
+margin: 0 auto;
+}
+
+.container {
+
+}
+
+.titleEl {
+    font-weight: 700;
+    font-size: 40px;
+    text-decoration: underline;
+    font-family: cursive;
+}
+
+.info {
+
+}
+
+.overview {
+
+}
+
+.runtime {
+
+}
+
+.pop {
+
+}
+
+.lang {
+
+}
+
+.poster {
+
+}
+
+.msg {
+    color: red;
+    opacity: 70%;
+    font-size: 20px;
+}
