@@ -69,3 +69,17 @@
     opacity: 70%;
     font-size: 14px;
 }
+
+.button {
+    margin-top: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
