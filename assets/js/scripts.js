@@ -1,8 +1,8 @@
 // This javascript file is to search for a movie.
 const movieNameInput = document.querySelector('#userInput');
 const formSubmit = document.querySelector('.searchForm');
-// p element to hold results data
-const pEl = document.querySelector('p')
+// div element that hold results data
+const resultEl = document.querySelector('.results-block');
 
 console.log(formSubmit);
 const optionsTMBD = {
@@ -16,15 +16,11 @@ const optionsTMBD = {
 
 function searchMovie(movie) {
   // added a line to clear results upon search
-  pEl.textContent = "";
+  resultEl.textContent = "";
   fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`, optionsTMBD)
     .then(response => {
       return response.json();
     })
-    // 	// .then(response => {
-    //   //       console.log(response);
-    //   //   })
-
     // changed 2nd .then to console log data.results specifically instead of response 
     .then(data => {
       console.log(data.results);
@@ -58,6 +54,13 @@ function searchMovie(movie) {
         release.textContent = "Release: " + info.release_date;
         release.classList.add('release');
 
+        const movieIdBtn = document.createElement('button');
+        movieIdBtn.textContent = 'Details';
+        movieIdBtn.id = 'details-btn';
+        movieIdBtn.setAttribute('type', 'button');
+        movieIdBtn.setAttribute('data-id-movie', info.id);
+        
+
         // created an img element w/ src attribute to hold and display movie images and base URL
         const poster = document.createElement('img');
 
@@ -69,6 +72,7 @@ function searchMovie(movie) {
         container.appendChild(popularity);
         container.appendChild(release);
         container.appendChild(poster);
+        container.appendChild(movieIdBtn);
 
 
         // removes thumbnails so no thumbnail is leftover if there is no image available
@@ -83,10 +87,12 @@ function searchMovie(movie) {
           sorry.classList.add('sorryMsg');
           sorry.textContent = '"Sorry, there\'\s no image available... :("';
           container.appendChild(sorry);
-          pEl.append(container);
+          resultEl.append(container);
         }
         // appending all created elements to the main p element of the html
-        pEl.append(container);
+        resultEl.append(container);
+
+
       })
     })
 
@@ -96,13 +102,30 @@ function searchMovie(movie) {
 
 }
 
+function movieIdDirect(event) {
+  if(event.target.matches('button')) {
+    const movieId = event.target.getAttribute('data-id-movie');
+
+    if (movieId){
+      localStorage.setItem('movie-id', movieId);
+      document.location.href = './details.html';
+    } else {
+      console.log('error');
+    }
+  
+  }
+}
+
+
 
 function formHandler(event) {
   event.preventDefault();
   console.log('Submitted the form')
+  
   const inputValue = movieNameInput.value;
   searchMovie(inputValue);
 }
 
 formSubmit.addEventListener('submit', formHandler);
 
+resultEl.addEventListener('click', movieIdDirect);
