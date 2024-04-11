@@ -43,23 +43,28 @@ function movieDetails(movie) {
         language.textContent = releaseDate.original_language;
 
         const poster = document.createElement('img');
-        poster.src = "https://image.tmdb.org/t/p/w185" + response.poster_path;
 
-        if (!poster) {
+
+        container.appendChild(titleEl);
+        container.appendChild(poster);
+
+        if (response.poster_path) {
+            poster.src = "https://image.tmdb.org/t/p/w185" + response.poster_path;
+
+        }
+            else {
             let msg = document.createElement('p');
           msg.textContent = '"Sorry, there\'\s no image available... :("';
           container.appendChild(msg);
           results.append(container);
         }
-
-        container.appendChild(titleEl);
+        
         container.appendChild(infoEl);
         container.appendChild(overview);
         container.appendChild(runtime);
         container.appendChild(releaseDate);
         container.appendChild(popularity);
         container.appendChild(language);
-        container.appendChild(poster);
 
         results.append(container);
 
