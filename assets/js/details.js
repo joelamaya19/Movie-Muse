@@ -27,8 +27,8 @@ function movieDetails(movie) {
 const optionsStreams = {
 	method: 'GET',
 	headers: {
-        'X-RapidAPI-Key': '8910e8743fmsh869130410bd8e0ep143b65jsnff67008b848f',
-		// 'X-RapidAPI-Key': 'be3659d7femsh065826255911efdp1e7449jsn2f084c997423',
+        'X-RapidAPI-Key': '8910e8743fmsh869130410bd8e0ep143b65jsnff67008b848f', // Joel's APIKEY = be3659d7femsh065826255911efdp1e7449jsn2f084c997423
+		
 		'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
 	}
 };
