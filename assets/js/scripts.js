@@ -3,6 +3,7 @@ const movieNameInput = document.querySelector('#userInput');
 const formSubmit = document.querySelector('.searchForm');
 // div element that hold results data
 const resultEl = document.querySelector('.results-block');
+const randomSelect = document.getElementById('random-selector');
 
 console.log(formSubmit);
 const optionsTMBD = {
@@ -102,6 +103,21 @@ function searchMovie(movie) {
 
 }
 
+
+
+function randomMovieSelector() {
+  const randomPage = Math.floor(Math.random()* 10)+1;
+  console.log(randomPage);
+  fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${randomPage}&sort_by=popularity.desc`, optionsTMBD)
+  .then(response => response.json())
+  .then(response => {
+    localStorage.setItem('movie-id', response.results[Math.floor(Math.random() * response.results.length)].id);
+    document.location.href = './details.html';
+  })
+  .catch(err => console.error(err));
+
+}
+
 function movieIdDirect(event) {
   if(event.target.matches('button')) {
     const movieId = event.target.getAttribute('data-id-movie');
@@ -116,8 +132,6 @@ function movieIdDirect(event) {
   }
 }
 
-
-
 function formHandler(event) {
   event.preventDefault();
   console.log('Submitted the form')
@@ -129,3 +143,5 @@ function formHandler(event) {
 formSubmit.addEventListener('submit', formHandler);
 
 resultEl.addEventListener('click', movieIdDirect);
+
+randomSelect.addEventListener('click', randomMovieSelector);
