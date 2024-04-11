@@ -1,8 +1,7 @@
 // This javascript file is to search for a movie.
 const movieNameInput = document.querySelector('#userInput');
 const formSubmit = document.querySelector('.searchForm');
-const detailsBtn = document.querySelector('#detailsBtn');
-// p element to hold results data
+// div element that hold results data
 const resultEl = document.querySelector('.results-block');
 
 console.log(formSubmit);
@@ -22,10 +21,6 @@ function searchMovie(movie) {
     .then(response => {
       return response.json();
     })
-    // 	// .then(response => {
-    //   //       console.log(response);
-    //   //   })
-
     // changed 2nd .then to console log data.results specifically instead of response 
     .then(data => {
       console.log(data.results);
@@ -126,6 +121,7 @@ function movieIdDirect(event) {
 function formHandler(event) {
   event.preventDefault();
   console.log('Submitted the form')
+  
   const inputValue = movieNameInput.value;
   searchMovie(inputValue);
 }

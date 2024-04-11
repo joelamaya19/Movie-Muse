@@ -1,9 +1,5 @@
 // This javascript file to give out the movie details & streaming availability.
-
-
 const movieId = localStorage.getItem('movie-id');
-
-
 
 
 const optionsTMBD = {
