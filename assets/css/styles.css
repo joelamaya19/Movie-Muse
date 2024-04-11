@@ -15,11 +15,16 @@
 }
 
 .langEl {
-color: red;
+color: rgb(96, 95, 95);
 /* background-color: black; */
 /* width: fit-content; */
 opacity: 50%;
 margin: auto;
+outline: white solid 1px;
+width: 25px;
+height: auto;
+border-radius: 25%;
+text-align: center;
 }
 
 .infoEl {
@@ -48,4 +53,10 @@ margin-bottom: 10px;
     opacity: 80%;
     border-radius: 3px;
 padding: 0 4px;
+}
+
+.sorryMsg {
+    color: red;
+    opacity: 70%;
+    font-size: 14px;
 }

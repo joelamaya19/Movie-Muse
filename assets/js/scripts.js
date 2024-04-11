@@ -62,6 +62,7 @@ function searchMovie(movie) {
         const poster = document.createElement('img')
 
 
+
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
         container.appendChild(languageEl);
@@ -71,6 +72,7 @@ function searchMovie(movie) {
         container.appendChild(release);
         container.appendChild(poster);
 
+
         // removes thumbnails so no thumbnail is leftover if there is no image available
         if (info.poster_path) {
           poster.src = "https://image.tmdb.org/t/p/w185" + info.poster_path;
@@ -78,11 +80,11 @@ function searchMovie(movie) {
         } else {
           // poster.src = ""; //nothing is displayed if no img avail
           let sorry = document.createElement('p');
-          sorry.textContent = "Sorry, there's no image available... :(";
+          sorry.classList.add('sorryMsg');
+          sorry.textContent = '"Sorry, there\'\s no image available... :("';
           container.appendChild(sorry);
           pEl.append(container);
         }
-        // // pEl.appendChild(titleEl, overview, release, popularity, languageEl);
         // appending all created elements to the main p element of the html
         pEl.append(container);
       })
