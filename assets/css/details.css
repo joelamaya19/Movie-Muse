@@ -34,7 +34,7 @@ body {
 }
 
 .release {
-text-decoration: underline;
+    text-decoration: underline;
 }
 
 .info {
@@ -58,7 +58,9 @@ text-decoration: underline;
 
 }
 
-.runtime, .pop, .lang{
+.runtime,
+.pop,
+.lang {
     display: inline-block;
     margin: 10px 30px 10px 30px;
     width: fit-content;
@@ -71,13 +73,15 @@ text-decoration: underline;
     font-size: 14px;
 }
 
-.genreName, .directorName, .castName {
+.genreName,
+.directorName,
+.castName {
     font-weight: 500;
     font-size: 20px;
     margin: 5px auto;
 }
 
-.members{
+.members {
     background-color: lavender;
     margin: 5px auto;
     padding: 0 5px;
@@ -88,7 +92,8 @@ text-decoration: underline;
 
 }
 
-.genres, .cast {
+.genres,
+.cast {
     background-color: lavender;
     margin: 5px;
     padding: 0 5px;
@@ -106,7 +111,7 @@ text-decoration: underline;
 }
 
 .year {
-font-size: 14px;
+    font-size: 14px;
 }
 
 
@@ -120,4 +125,28 @@ font-size: 14px;
     border-radius: 3px;
     padding: 0 4px;
     font-size: 14px;
+}
+
+/*#back {
+    border: 2px dashed grey;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 255, 0.228);
+    padding: 3px;
+    position: relative;
+    left: 35%;
+    top: 20px;
+    width: 10%;
+    font-weight: 700;
+    color: purple;
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 255, 0.418);*/
+
+
+}
+
+#back:hover {
+    background-color: lavender;
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 255, 0.418);
+
 }
