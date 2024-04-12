@@ -139,10 +139,10 @@ body {
     font-weight: 700;
     color: purple;
     transition: background-color 0.5s ease-in-out;
-    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 255, 0.418);*/
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 255, 0.418);
 
 
-}
+}*/
 
 #back:hover {
     background-color: lavender;
