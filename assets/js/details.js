@@ -126,7 +126,7 @@ function streamingAvailabilityInfo(id) {
         .then(response => {
             console.log(response);
             const container = document.createElement('div');
-            container.classList.add('container');
+            container.classList.add('containerTwo');
             // display cast info
             const castName = document.createElement('p');
             castName.textContent = 'Cast: ';

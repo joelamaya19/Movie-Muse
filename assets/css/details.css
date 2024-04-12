@@ -6,8 +6,20 @@ body {
 }
 
 .container {
-    border: 2px solid grey;
-    margin: 30px auto;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    margin: 30px auto 0px auto;
+    padding: 15px 5px;
+    background-color: rgba(0, 0, 255, 0.228);
+    width: 80%;
+}
+
+.containerTwo {
+    border-bottom: 2px solid grey;
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    margin: 0 auto;
     padding: 15px 5px;
     background-color: rgba(0, 0, 255, 0.228);
     width: 80%;
