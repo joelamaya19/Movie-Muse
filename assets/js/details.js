@@ -1,6 +1,11 @@
 // This javascript file to give out the movie details & streaming availability.
 const movieId = localStorage.getItem('movie-id');
 const results = document.querySelector('.results-block');
+const btn = document.querySelector('#back');
+
+btn.addEventListener('click', function () {
+    window.history.back();
+});
 
 
 const optionsTMBD = {
