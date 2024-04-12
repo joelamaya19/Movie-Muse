@@ -55,16 +55,20 @@ function searchMovie(movie) {
         release.textContent = "Release: " + info.release_date;
         release.classList.add('release');
 
+        const buttonContainer = document.createElement('div'); // Create a container for the button
+        buttonContainer.classList.add('button-container'); 
+
         const movieIdBtn = document.createElement('button');
         movieIdBtn.textContent = 'Details';
         movieIdBtn.id = 'details-btn';
         movieIdBtn.setAttribute('type', 'button');
+        movieIdBtn.setAttribute('class', 'button is-link');
         movieIdBtn.setAttribute('data-id-movie', info.id);
         
 
         // created an img element w/ src attribute to hold and display movie images and base URL
         const poster = document.createElement('img');
-
+        buttonContainer.appendChild(movieIdBtn);
         // append each element to the pEl separately rather than all together for visibility
         container.appendChild(titleEl);
         container.appendChild(languageEl);
@@ -73,7 +77,7 @@ function searchMovie(movie) {
         container.appendChild(popularity);
         container.appendChild(release);
         container.appendChild(poster);
-        container.appendChild(movieIdBtn);
+        container.appendChild(buttonContainer);
 
 
         // removes thumbnails so no thumbnail is leftover if there is no image available
